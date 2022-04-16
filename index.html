@@ -1,15 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="Main.js"></script>
-    <script src="RailFenceCipher.js"></script>
-    <title>Document</title>
-</head>
-<body onload="main()">
-    <textarea name="input" id="input"> </textarea>
-    <textarea name="output" id ="output"></textarea>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <script src="Main.js"></script>
+        <script src="RailFenceCipher.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <body onload="main()">
+
+
+
+        <div class="container">
+            <h2 class="instructions alg-inst">Szyfr:</h2>
+            <div class="alg_menu">
+                <div class="alg_menu--item alg-selected" >Płotkowy </div>
+                <div class="alg_menu--item"> Kolumnowy </div>
+                <div class="alg_menu--item"> Własny </div>
+            </div>
+            <h2 class="instructions act-inst">Odszyfruj/zaszyfruj:</h2>
+            <div class="action_menu">
+                <div class="action_menu--item act-selected">Zaszyfruj </div>
+                <div class="action_menu--item">Odszyfruj </div>
+
+            </div>
+            <h2 class="instructions opt-inst">Dodatkowe opcje szyfrowania:</h2>
+            <div class="option_menu">
+                <div class="option_menu--item" id="railfence">
+                    <label for="railfence">Klucz</label><input type="number" name="railfence" id="railKey" value="4" min="2">
+                </div>
+
+                <div class="option_menu--item" id="column">
+                    <label for="column">Column</label><input type="number" name="column" id="columnKey" value="4">
+                </div>
+
+                <div class="option_menu--item" id="own">
+                    <label for="own">Własny</label><input type="number" name="own" id="ownKey" value="4">
+                </div>
+            </div>
+
+            <div class="main">
+                <textarea name="input" id="input"> </textarea>
+                <textarea name="output" id="output"></textarea>
+            </div>
+
+        </div>
+
+    </body>
 </html>

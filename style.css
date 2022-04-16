@@ -1,0 +1,163 @@
+@font-face {
+    font-family: Mali;
+    src: url(./static/Mali-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: Major;
+    src: url(./static/MajorMonoDisplay-Regular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    background-color: #121212;
+    font-family: Major;
+}
+
+
+.container {
+    margin: 0 auto;
+    /* background-color: red; */
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.alg_menu,
+.action_menu,
+.option_menu,
+.main {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    flex-grow: 6;
+    padding: 1rem 1rem 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.alg_menu--item,
+.action_menu--item {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: rgba(255, 255, 255, 0.14);
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.alg_menu--item:hover {
+    cursor: pointer;
+    background-color: #7E2569;
+    transition: ease-out 1s;
+}
+
+.alg-selected {
+    background-color: #7E2569;
+}
+
+.action_menu--item:hover {
+    cursor: pointer;
+    background-color: #BD1A4B;
+    transition: ease-out 1s;
+}
+
+.act-selected {
+    background-color: #BD1A4B;
+}
+
+input {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: Major;
+
+}
+
+label {
+    font-size: 1.5rem;
+    color: white;
+    padding: 0 20px;
+}
+
+input[name=railfence] {
+    width: 80px;
+    text-align: center;
+}
+
+.option_menu--item {
+    width: 100%;
+    background-color: #d75b80;
+    padding: 1rem;
+    display: none;
+}
+
+.instructions {
+    padding: 0.5rem;
+    font-size: 2rem;
+}
+
+.act-inst {
+    color: #BD1A4B;
+}
+
+.alg-inst {
+    color: #7E2569;
+}
+
+.opt-inst {
+    color: #d75b80;
+}
+
+.main>textarea {
+    width: 100%;
+    height: 15rem;
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 1.25rem;
+    font-family: Mali;
+    color: white;
+}
+
+.main>textarea:focus {
+    border: none;
+    color: white;
+}
+
+
+@media screen and (max-width: 760px) {
+
+    .alg_menu,
+    .action_menu,
+    .option_menu,
+    .main {
+        flex-direction: column;
+        font-size: 1rem;
+    }
+
+    .instructions{
+        font-size: 1.2rem;
+    }
+
+    label {
+        font-size: 1rem;
+    }
+    input {
+        font-size: 1rem;
+
+    }
+}
+
+

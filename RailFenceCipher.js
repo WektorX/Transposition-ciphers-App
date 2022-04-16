@@ -33,7 +33,6 @@ class RailFenceCipher {
             }
         }
         output.innerText = encryptedMsg;
-        this.decrypt(encryptedMsg, 4)
     }
 
     decrypt(encMsg, rail){
@@ -53,7 +52,7 @@ class RailFenceCipher {
         var pong = 1;
         let step = 0;
         for (let i = 0; i < encdMsgLength; i++) {
-            decryptionTable[step][i] = "x";
+            decryptionTable[step][i] = "+";
             step += pong;
             if (step == rail || step == -1) {
                 pong *= -1;
@@ -65,7 +64,7 @@ class RailFenceCipher {
         var counter = 0;
         for (let i = 0; i < rail; i++) {
             for (let j = 0; j < encdMsgLength; j++) {
-                if (decryptionTable[i][j] == "x") {
+                if (decryptionTable[i][j] == "+") {
                     decryptionTable[i][j] = encMsg.charAt(counter);
                     counter += 1;
                 }
@@ -80,7 +79,8 @@ class RailFenceCipher {
                 }
             }
         }
-        console.log(message)
+
+        output.innerText = message;
     }
 
 }
