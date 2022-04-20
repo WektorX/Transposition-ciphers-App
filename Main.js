@@ -21,11 +21,15 @@ main = function () {
     var options = 4;
     var algorithms = document.getElementsByClassName("alg_menu--item");
 
-    //Options - by defaulr railfence options are displayed
+    //Options - by default railfence options are displayed
     var railfenceOptions = document.getElementById("railfence");
     railfenceOptions.style.display = "flex";
     var columnOptions = document.getElementById("column");
     var ownOptions = document.getElementById("own")
+
+    // Get inputs for all options 
+    var railfenceKey = document.getElementById("railKey");
+    var columnKey = document.getElementById("columnKey");
 
     for (let i = 0; i < algorithms.length; i++) {
 
@@ -46,10 +50,12 @@ main = function () {
             switch (value) {
                 case "Płotkowy":
                     encryptionAlgorithm = new RailFenceCipher();
+                    options = parseInt(railfenceKey.value);
                     hideAndShow(railfenceOptions, [columnOptions, ownOptions])
                     break;
                 case "Kolumnowy":
-                    encryptionAlgorithm = new RailFenceCipher();
+                    encryptionAlgorithm = new ColumnarTranspositionCipher();
+                    options = columnKey.value.toString();
                     hideAndShow(columnOptions, [railfenceOptions, ownOptions])
                     break;
                 case "Własny":
@@ -85,9 +91,19 @@ main = function () {
 
     //Listeners for all options 
 
-    var railfenceKey = document.getElementById("railKey");
+
     railfenceKey.addEventListener("change", (event) => {
         options = event.target.value;
+        if (encrypt) {
+            encryptionAlgorithm.encrypt(input.value, options);
+        }
+        else {
+            encryptionAlgorithm.decrypt(input.value, options);
+        }
+    })
+
+    columnKey.addEventListener("change", (event) =>{
+        options = event.target.value.toString();
         if (encrypt) {
             encryptionAlgorithm.encrypt(input.value, options);
         }
@@ -109,4 +125,11 @@ hideAndShow = function (show, hide) {
         h = hide[i];
         h.style.display = "none"
     }
+}
+
+alphaOnly = function(event){
+    console.log(event)
+    var key = event.keyCode;
+    if(((key >= 65 && key <= 90) || key == 8))
+    return key;
 }
