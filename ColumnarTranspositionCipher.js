@@ -1,6 +1,6 @@
 class ColumnarTranspositionCipher {
     constructor() {
-        this.alphabet = "abcdefghijklmnopqrstuwxyz"
+        this.alphabet = "aąbcćdeęfghijklłmnńoópqrsśtuwxyzźż"
     }
 
     encrypt(msg, keyWord) {
